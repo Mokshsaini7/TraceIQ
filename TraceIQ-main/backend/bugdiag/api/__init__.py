@@ -1,2 +1,0 @@
-"""BugDiag API package.
-"""
