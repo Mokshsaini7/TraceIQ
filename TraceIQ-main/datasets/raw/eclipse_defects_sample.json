@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ECL-540192",
+    "product": "Eclipse JDT",
+    "summary": "NullPointerException in MethodBinding.isVarargs() during lambda expression type inference",
+    "description": "JDT compiler throws NullPointerException while resolving return type bindings of nested generic lambdas where target interface contains overloaded SAM declarations.",
+    "stack_trace": "java.lang.NullPointerException at org.eclipse.jdt.internal.compiler.lookup.MethodBinding.isVarargs(MethodBinding.java:490)\n at org.eclipse.jdt.internal.compiler.ast.LambdaExpression.resolveType(LambdaExpression.java:231)\n at org.eclipse.jdt.internal.compiler.ast.MessageSend.resolveType(MessageSend.java:822)\n at org.eclipse.jdt.core.dom.ASTConverter.convert(ASTConverter.java:410)",
+    "comments": "Root cause was unverified binding resolution in poly expression context. Added non-null fallback to synthetic binding.",
+    "resolution": "FIXED",
+    "status": "CLOSED",
+    "language": "Java",
+    "creation_ts": "2023-02-19T11:24:00Z",
+    "delta_ts": "2023-03-01T15:10:00Z",
+    "url": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=540192"
+  },
+  {
+    "id": "ECL-571103",
+    "product": "Eclipse Platform",
+    "summary": "SWTException 'Invalid thread access' in WorkspaceJob after async Display.getDefault() disposal",
+    "description": "Background WorkspaceJob attempting to refresh UI markers throws SWTException: Invalid thread access if user closes the workbench while file validation is still processing.",
+    "stack_trace": "org.eclipse.swt.SWTException: Invalid thread access\n at org.eclipse.swt.SWT.error(SWT.java:4742)\n at org.eclipse.swt.SWT.error(SWT.java:4657)\n at org.eclipse.swt.widgets.Display.checkDevice(Display.java:760)\n at org.eclipse.swt.widgets.Display.asyncExec(Display.java:710)\n at org.eclipse.ui.internal.views.markers.ProblemsView.update(ProblemsView.java:312)",
+    "comments": "Added display.isDisposed() validation prior to queuing asyncExecRunnable in background job runner.",
+    "resolution": "FIXED",
+    "status": "VERIFIED",
+    "language": "Java",
+    "creation_ts": "2023-07-14T09:45:10Z",
+    "delta_ts": "2023-07-20T17:00:00Z",
+    "url": "https://bugs.eclipse.org/bugs/show_bug.cgi?id=571103"
+  }
+]
