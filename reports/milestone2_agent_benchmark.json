@@ -1,0 +1,81 @@
+{
+  "benchmark_version": "1.0",
+  "dataset": {
+    "historical_seed_records": 10,
+    "synthetic_format_cases": 8,
+    "source_files": [
+      "mozilla_defects_sample.json",
+      "apache_defects_sample.csv",
+      "eclipse_defects_sample.json"
+    ]
+  },
+  "triage_historical_accuracy": {
+    "severity": {
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0
+    },
+    "priority": {
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0
+    },
+    "component": {
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0
+    }
+  },
+  "log_historical_accuracy": {
+    "exception_type": {
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0
+    },
+    "failure_point": {
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0
+    },
+    "code_path": {
+      "correct": 10,
+      "total": 10,
+      "accuracy": 1.0
+    }
+  },
+  "log_synthetic_accuracy": {
+    "exception_type": {
+      "correct": 8,
+      "total": 8,
+      "accuracy": 1.0
+    },
+    "failure_point": {
+      "correct": 8,
+      "total": 8,
+      "accuracy": 1.0
+    },
+    "code_path": {
+      "correct": 8,
+      "total": 8,
+      "accuracy": 1.0
+    }
+  },
+  "synthetic_detected_format_accuracy": {
+    "correct": 8,
+    "total": 8,
+    "accuracy": 1.0
+  },
+  "input_shape_smoke_checks": {
+    "description_only_triage": true,
+    "missing_logs_graceful": true,
+    "logs_without_description_graceful": true,
+    "messy_unstructured_logs_graceful": true
+  },
+  "incorrect_predictions": [],
+  "failure_analysis": {},
+  "limitations": [
+    "Historical seed set contains only 10 curated examples and is not statistically representative.",
+    "Severity and priority labels are manual benchmark annotations because the source files do not provide a normalized ground-truth label for every issue.",
+    "Confidence scores are evidence-coverage heuristics, not calibrated probabilities."
+  ]
+}
